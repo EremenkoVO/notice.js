@@ -25,10 +25,12 @@
 }
 
 .notice-default {
-  background: #f1f4f7;
+  color: black;
+  background: #838C9C;
 }
 
 .notice-info {
+  color: black;
   background: #f3e287;
 }
 
