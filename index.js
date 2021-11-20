@@ -1,17 +1,12 @@
-// Автор данного плагина для отображения уведомлений являются:
-// Михаил Туник: https://github.com/prince-poley
-// Вадим Еременко: https://github.com/EremenkoVO
-// Версия 1.0.0
-
 // Инициализация инстанса Notice
 var notice = {};
 var noticeWrapper;
 
 // Создание и добавление к документу обертки для сообщений
 function initWrapper() {
-  noticeWrapper = document.createElement("div");
-  noticeWrapper.classList.add("notice-wrapper");
-  document.querySelector("body").append(noticeWrapper);
+  noticeWrapper = document.createElement('div');
+  noticeWrapper.classList.add('notice-wrapper');
+  document.querySelector('body').append(noticeWrapper);
 }
 
 // Создание одиночного экземпляра сообщения
@@ -23,7 +18,7 @@ function create(status, message) {
   if (noticeWrapper.childElementCount >= 3) return;
 
   // Создание сообщения
-  var noti = document.createElement("div");
+  var noti = document.createElement('div');
 
   // Добавление списка классов сообщению
   noti.classList.add(...status);
@@ -32,10 +27,10 @@ function create(status, message) {
   // для создания более плавного
   // появления и исчезновения
   setTimeout(function () {
-    noti.style.opacity = "1";
+    noti.style.opacity = '1';
 
     setTimeout(function () {
-      noti.style.opacity = "0";
+      noti.style.opacity = '0';
 
       setTimeout(function () {
         noticeWrapper.removeChild(noti);
@@ -53,26 +48,23 @@ function create(status, message) {
 }
 
 notice.default = function (message) {
-  create(["notice-default", "notice"], message);
+  create(['notice-default', 'notice'], message);
 };
 
 // Создание сообщения "Успех"
 notice.success = function (message) {
-  create(["notice-success", "notice"], message);
+  create(['notice-success', 'notice'], message);
 };
 
 // Создание сообщения "Ошибка"
 notice.error = function (message) {
-  create(["notice-error", "notice"], message);
+  create(['notice-error', 'notice'], message);
 };
 
 // Создаем сообщение "Информация"
 notice.info = function (message) {
-  create(["notice-info", "notice"], message);
+  create(['notice-info', 'notice'], message);
 };
 
 // Инициализация и монтирование обертки
 initWrapper();
-
-// Экспорт инстанса Notice
-module.exports = notice;
