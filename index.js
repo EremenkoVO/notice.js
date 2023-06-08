@@ -1,6 +1,6 @@
 // Инициализация инстанса Notice
-var notice = {};
-var noticeWrapper;
+let notice = {};
+let noticeWrapper;
 
 // Создание и добавление к документу обертки для сообщений
 function initWrapper() {
@@ -18,7 +18,7 @@ function create(status, message) {
   if (noticeWrapper.childElementCount >= 3) return;
 
   // Создание сообщения
-  var noti = document.createElement('div');
+  let noti = document.createElement('div');
 
   // Добавление списка классов сообщению
   noti.classList.add(...status);
